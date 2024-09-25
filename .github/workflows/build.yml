@@ -34,8 +34,8 @@ jobs:
       - name: Run Tests
         run: mvn -B test
 
-  #Sonar's Job
-  sonar:
+#Sonar's Job
+sonar:
   #Depends on test's job
   needs: tests
   name: SonarCloud analysis
@@ -71,5 +71,4 @@ jobs:
       run: mvn -B verify sonar:sonar -Dsonar.projectKey=juangomez77udea_lab2virtual -Dsonar.organization=juangomez77udea -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
